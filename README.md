@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿# SentiPulse: Social Sentiment Analyzer
 
 SentiPulse is a rapid sentiment analysis tool designed to quickly gauge public opinion from social media-style text inputs. This MVP focuses on delivering core sentiment analysis functionality with a simple, user-friendly interface.
@@ -100,3 +101,6 @@ This project is licensed under the MIT License.
 - Hugging Face for providing the sentiment analysis model
 - The Svelte and Vite teams for their excellent frontend tools
 - The open-source community for the various libraries and tools used in this project
+=======
+# sentipulse
+>>>>>>> origin/main
