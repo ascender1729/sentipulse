@@ -1,64 +1,105 @@
+# SentiPulse: Social Sentiment Analyzer
 
-﻿# SentiPulse: Social Sentiment Analyzer
+SentiPulse is an advanced sentiment analysis tool designed to quickly gauge public opinion from social media-style text inputs. It provides real-time sentiment analysis with a user-friendly interface, making it easy to understand the emotional tone of text data.
 
-SentiPulse is a rapid sentiment analysis tool designed to quickly gauge public opinion from social media-style text inputs. This MVP focuses on delivering core sentiment analysis functionality with a simple, user-friendly interface.
+## Table of Contents
 
-## Tech Stack and Tools
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Project Structure](#project-structure)
+- [API Endpoints](#api-endpoints)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
+- [Acknowledgements](#acknowledgements)
+
+## Features
+
+- **Advanced Sentiment Analysis**: Utilizes the `distilroberta-base` model from Hugging Face for accurate sentiment classification.
+  - Classifies text into Positive, Negative, or Neutral categories.
+  - Provides a confidence score for each classification.
+- **Fallback Mechanism**: Implements a local, rule-based sentiment analysis as a backup when the Hugging Face API is unavailable.
+- **Real-time Processing**: Instantly analyzes the sentiment of input text.
+- **Intuitive User Interface**: Easy-to-use interface for entering text and viewing results.
+- **Visual Representation**: Dynamic chart displaying sentiment distribution using Chart.js.
+- **Recent Analysis History**: View a list of recent sentiment analyses stored in SQLite database.
+- **Responsive Design**: Seamless experience across different device sizes.
+
+## Tech Stack
 
 ### Backend
-- **Node.js**: JavaScript runtime for the server
-- **Express**: Web application framework for Node.js
-- **SQLite**: Lightweight, serverless database for data storage
-- **Hugging Face Inference API**: Used for advanced sentiment analysis (with fallback to local analysis)
-- **dotenv**: For managing environment variables
+- **Node.js**: JavaScript runtime for server-side logic.
+- **Express**: Web application framework for Node.js.
+- **SQLite**: Lightweight, serverless database for data storage.
+- **Hugging Face Inference API**: 
+  - Model: `distilroberta-base`
+  - Task: Text Classification (Sentiment Analysis)
+  - Capabilities: Multi-class classification (Positive, Negative, Neutral)
+- **dotenv**: Environment variable management.
 
 ### Frontend
-- **Svelte**: Reactive JavaScript framework for building user interfaces
-- **Vite**: Next-generation frontend tooling for faster development
-- **Chart.js**: JavaScript charting library for data visualization
+- **Svelte**: Reactive JavaScript framework for building user interfaces.
+- **Vite**: Next-generation frontend tooling for faster development.
+- **Chart.js**: JavaScript charting library for data visualization.
 
 ### Development Tools
-- **Git**: Version control system
-- **npm**: Package manager for JavaScript
-- **nodemon**: Utility for automatically restarting the server during development
+- **Git**: Version control system.
+- **npm**: Package manager for JavaScript.
+- **nodemon**: Utility for automatic server restarts during development.
 
-### APIs and Services
-- **Hugging Face's `distilroberta-base` model**: Pre-trained model for sentiment analysis
+## Prerequisites
 
-## Key Features
+- Node.js (v14 or later)
+- npm (v6 or later)
+- Git
 
-1. Intuitive text input interface for social media posts
-2. Instant sentiment analysis using a pre-trained model (with local fallback)
-3. Visual representation of sentiment results using Chart.js
-4. Scrollable list of recent analyses for quick reference
-5. Responsive design with animations for enhanced user experience
+## Installation
 
-## Setup
-
-1. Clone the repository
-2. Install dependencies:
+1. Clone the repository:
    ```
-   cd server && npm install
-   cd ../client && npm install
+   git clone https://github.com/ascender1729/sentipulse.git
+   cd sentipulse
    ```
-3. Set up the environment:
-   - Rename `.env.example` to `.env`
-   - Add your Hugging Face API key to the `.env` file
-4. Start the development servers:
+
+2. Install server dependencies:
    ```
-   # In the server directory
-   npm run dev
-   
-   # In a new terminal, in the client directory
-   npm run dev
+   cd server
+   npm install
    ```
+
+3. Install client dependencies:
+   ```
+   cd ../client
+   npm install
+   ```
+
+4. Set up environment variables:
+   - Rename `.env.example` to `.env` in the server directory.
+   - Add your Hugging Face API key to the `.env` file:
+     ```
+     HF_API_KEY=your_huggingface_api_key_here
+     ```
 
 ## Usage
 
-1. Open your browser and navigate to `http://localhost:5173`
-2. Enter text in the input field
-3. Click 'Analyze Sentiment'
-4. View the sentiment analysis result, chart, and recent analyses
+1. Start the server:
+   ```
+   cd server
+   npm run dev
+   ```
+
+2. In a new terminal, start the client:
+   ```
+   cd client
+   npm run dev
+   ```
+
+3. Open your browser and navigate to `http://localhost:5173`.
+
+4. Enter text in the input field and click "Analyze Sentiment" to see the results.
 
 ## Project Structure
 
@@ -85,19 +126,37 @@ sentipulse/
 └── README.md
 ```
 
-## Future Enhancements
+## API Endpoints
 
-- Implement user authentication
-- Add support for analyzing multiple posts at once
-- Integrate with social media APIs for direct data fetching
-- Enhance the sentiment analysis model with fine-tuning or more advanced techniques
+- `POST /api/analyze`: Analyze sentiment of provided text.
+- `GET /api/recent`: Retrieve recent sentiment analyses.
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
 ## License
 
-This project is licensed under the MIT License.
+Distributed under the MIT License. See `LICENSE` for more information.
+
+## Contact
+
+Pavan Kumar - pavankumard.pg19.ma@nitp.ac.in
+
+LinkedIn: [linkedin.com/in/im-pavankumar](https://www.linkedin.com/in/im-pavankumar/)
+
+Project Link: [https://github.com/ascender1729/sentipulse](https://github.com/ascender1729/sentipulse)
 
 ## Acknowledgements
 
-- Hugging Face for providing the sentiment analysis model
-- The Svelte and Vite teams for their excellent frontend tools
-- The open-source community for the various libraries and tools used in this project
+- [Hugging Face](https://huggingface.co/) for their Inference API and the `distilroberta-base` model
+- [Svelte](https://svelte.dev/) for the reactive UI framework
+- [Chart.js](https://www.chartjs.org/) for data visualization
+- [Express.js](https://expressjs.com/) for the server framework
+- [SQLite](https://www.sqlite.org/) for the database
